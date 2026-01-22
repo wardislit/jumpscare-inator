@@ -13,7 +13,7 @@ public class ChanceRunner {
     private static double pity = 1;
     private static double CHANCE_PER_SECOND = pity / 600; // 1 chance per 10 minutes
     private static final double MAX_PITY = 10; // Max 10x chance
-    private static double pityIncrement = 600; // Increase pity every 10 minutes without event
+    private static double pityIncrement = 60; // Increase pity every 1 minute without event
     private static double seconds = 0;
 
     private static TrayIcon trayIcon;
@@ -54,10 +54,12 @@ public class ChanceRunner {
         scheduler.scheduleAtFixedRate(() -> {
             float rand = (float) Math.random();
             seconds++;
+            trayIcon.setToolTip("For those who know: Seconds without event: " + (int) seconds + ", Pity is now "
+                    + String.format("%.2f", pity) + "x");
             if (seconds % pityIncrement == 0 && pity < MAX_PITY) {
                 pity++;
                 CHANCE_PER_SECOND = pity / 600;
-                trayIcon.setToolTip("For those who know: Pity is now " + pity + "x");
+
             }
 
             if (rand < CHANCE_PER_SECOND) {
