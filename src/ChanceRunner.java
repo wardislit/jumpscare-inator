@@ -16,6 +16,8 @@ public class ChanceRunner {
     private static double pityIncrement = 600; // Increase pity every 10 minutes without event
     private static double seconds = 0;
 
+    private static TrayIcon trayIcon;
+
     @SuppressWarnings("unused")
     private static FoxyWindow jumpscare;
 
@@ -31,7 +33,7 @@ public class ChanceRunner {
         Image image = Toolkit.getDefaultToolkit().getImage("icon.png");
 
         // Tooltip text
-        TrayIcon trayIcon = new TrayIcon(image, "For those who know:");
+        trayIcon = new TrayIcon(image, "For those who know: " + "Pity is now " + pity + "x");
 
         trayIcon.setImageAutoSize(true);
 
@@ -55,7 +57,7 @@ public class ChanceRunner {
             if (seconds % pityIncrement == 0 && pity < MAX_PITY) {
                 pity++;
                 CHANCE_PER_SECOND = pity / 600;
-                System.out.println("Pity increased to: " + pity + "x, new chance per second: " + CHANCE_PER_SECOND);
+                trayIcon.setToolTip("For those who know: Pity is now " + pity + "x");
             }
 
             if (rand < CHANCE_PER_SECOND) {
