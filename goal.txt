@@ -1,0 +1,8 @@
+Goal:
+Jumpscare (1/1000 secs)
+
+Limits:
+Anywhere
+Over Any Screen
+Closes after executes
+Hides into tray (Necessary)
