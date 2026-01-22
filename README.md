@@ -75,12 +75,10 @@ java -jar FoxyJumpscare.jar
 ### From EXE
 
 * Double-click the generated `.exe` file
-* Tray icon will appear for manual triggering
-* Scheduled jumpscare can run automatically if enabled
+* Tray icon will appear and you can only exit for there
 
 ## Tray Controls
-
-* **Left-click** or **Open Foxy** → triggers jumpscare overlay
+* **Default** → That thing
 * **Exit** → closes the application
 
 ## Scheduling Jumpscares
