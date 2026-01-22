@@ -10,7 +10,11 @@ import javax.swing.*;
 import javax.swing.SwingUtilities;
 
 public class ChanceRunner {
-    private static final double CHANCE_PER_SECOND = 1 / 600; // 1 chance per 10 minutes
+    private static double pity = 1;
+    private static double CHANCE_PER_SECOND = pity / 600; // 1 chance per 10 minutes
+    private static final double MAX_PITY = 10; // Max 10x chance
+    private static double pityIncrement = 600; // Increase pity every 10 minutes without event
+    private static double seconds = 0;
 
     @SuppressWarnings("unused")
     private static FoxyWindow jumpscare;
@@ -46,9 +50,19 @@ public class ChanceRunner {
         ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
 
         scheduler.scheduleAtFixedRate(() -> {
-            if (Math.random() < CHANCE_PER_SECOND) {
-                triggerEvent();
+            float rand = (float) Math.random();
+            seconds++;
+            if (seconds % pityIncrement == 0 && pity < MAX_PITY) {
+                pity++;
+                CHANCE_PER_SECOND = pity / 600;
+                System.out.println("Pity increased to: " + pity + "x, new chance per second: " + CHANCE_PER_SECOND);
             }
+
+            if (rand < CHANCE_PER_SECOND) {
+                triggerEvent();
+                resetPity();
+            }
+            System.out.println("Random value: " + rand);
         }, 0, 1, TimeUnit.SECONDS);
         exitItem.addActionListener(e -> System.exit(0));
     }
@@ -62,5 +76,12 @@ public class ChanceRunner {
         }
 
         System.out.println("Event happened!");
+    }
+
+    private static void resetPity() {
+        pity = 1;
+        CHANCE_PER_SECOND = pity / 600;
+        seconds = 0;
+        System.out.println("Pity reset to 1x, chance per second: " + CHANCE_PER_SECOND);
     }
 }
