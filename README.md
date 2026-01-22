@@ -13,9 +13,8 @@ A Java-based jumpscare application that displays a fullscreen animated Foxy GIF 
 
 ## Requirements
 
-* Java 17+ (JDK recommended)
+* Java 21+ (JDK recommended)
 * Swing/AWT support (built into standard JDK)
-* Optional: Launch4j if you want a Windows `.exe` wrapper
 
 ## Project Structure
 
@@ -54,7 +53,6 @@ jar cfm FoxyJumpscare.jar manifest.txt -C out .
 
 ```
 Main-Class: src.ChanceRunner
-
 ```
 
 ### 3. Optional: Build Windows Executable
@@ -118,4 +116,6 @@ This README covers:
 
 ---
 
-Inspired by [this guy](https://youtu.be/3ZsQNmVRz7A?si=nkJU59p0pMdQeLxT) (so I made this).
+## Inspired by [this guy](https://youtu.be/3ZsQNmVRz7A?si=nkJU59p0pMdQeLxT) (so I made this).
+
+### Note: Sometimes it feels like forever and th-
