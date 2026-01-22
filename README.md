@@ -50,14 +50,12 @@ javac -d out src/src/*.java
 jar cfm FoxyJumpscare.jar manifest.txt -C out .
 ```
 
-* Make sure `manifest.txt` specifies your main class:
+* The `manifest.txt` specifies the main class:
 
 ```
-Main-Class: src.Main
+Main-Class: src.ChanceRunner
 
 ```
-
-* Include a blank line at the end of `manifest.txt`
 
 ### 3. Optional: Build Windows Executable
 
