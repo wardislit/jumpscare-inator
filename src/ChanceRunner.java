@@ -1,12 +1,10 @@
+package src;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 import javax.swing.SwingUtilities;
-
-import src.FoxyWindow;
-import src.SoundPlayer;
 
 public class ChanceRunner {
     private static final double CHANCE_PER_SECOND = 0.001; // 0.1% chance per second
