@@ -10,7 +10,7 @@ import javax.swing.*;
 import javax.swing.SwingUtilities;
 
 public class ChanceRunner {
-    private static final double CHANCE_PER_SECOND = 0.001; // 0.1% chance per second
+    private static final double CHANCE_PER_SECOND = 1 / 600; // 1 chance per 10 minutes
 
     @SuppressWarnings("unused")
     private static FoxyWindow jumpscare;
